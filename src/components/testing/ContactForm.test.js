@@ -5,12 +5,15 @@ import ContactForm from '../ContactForm';
 test('Contact form accepts all input values and can be submitted', () => {
     render(<ContactForm />)
 
-    const firstName = screen.queryByPlaceholderText(/Edd/i);
-    const lastName = screen.queryByPlaceholderText(/Burke/i);
-    const email = screen.queryByPlaceholderText(/bluebill1049@hotmail.com/i);
-    const message = screen.queryByLabelText(/message/i);
+    const firstName = screen.getByLabelText(/first name*/i)
+    expect(firstName).toBeTruthy();
+    const lastName = screen.getByLabelText(/last name*/i)
+    expect(lastName).toBeTruthy();
+    const email = screen.getByLabelText(/email*/i)
+    expect(email).toBeTruthy();
+    const message = screen.getByLabelText(/message*/i);
+    expect(message).toBeTruthy();
 
-    console.log(firstName)
 
     fireEvent.change(firstName, {target: {value: 'Tom'}});
     fireEvent.change(lastName, {target: {value: 'Schwarzenegger'}});
@@ -18,6 +21,7 @@ test('Contact form accepts all input values and can be submitted', () => {
     fireEvent.change(message, {target: {value: 'Hasta la vista, baby!'}});
 
     const submitButton = screen.getByText(/submit!/i);
+    expect(submitButton).toBeTruthy();
     fireEvent.click(submitButton);
 
 })
