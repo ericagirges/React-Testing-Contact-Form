@@ -61,7 +61,7 @@ const ContactForm = () => {
             {JSON.stringify(data, null, 2)}
           </pre>
         )}
-        <button data-testid="submit">Submit</button>
+        <button type="submit" data-testid="submit">Submit</button>
       </form>
     </div>
   );
