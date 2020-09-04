@@ -32,7 +32,7 @@ test('Contact form accepts all input values and can be submitted', () => {
   fireEvent.change(email, {target: {value: 'iamanemail@email.com'}});
   fireEvent.change(message, {target: {value: 'Hasta la vista, baby!'}});
 
-  const submitButton = screen.getByTestId(/submit/i);
+  const submitButton = screen.getByTestId(/form/i);
   expect(submitButton).toBeTruthy();
   fireEvent.click(submitButton);
 

@@ -12,7 +12,7 @@ const ContactForm = () => {
 
   return (
     <div className="App">
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form data-testid="form" onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label htmlFor="firstName">
             First Name*
@@ -61,7 +61,7 @@ const ContactForm = () => {
             {JSON.stringify(data, null, 2)}
           </pre>
         )}
-        <button type="submit" data-testid="submit">Submit</button>
+        <button id="submit" data-testid="submit">Submit</button>
       </form>
     </div>
   );
